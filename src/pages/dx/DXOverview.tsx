@@ -1,0 +1,47 @@
+import { useLanguage } from '../../contexts/LanguageContext';
+import SEOHead from '../../components/SEOHead';
+import type { ReactElement } from 'react';
+
+export default function DXOverview(): ReactElement {
+  const { language } = useLanguage();
+  const isKo = language === 'ko';
+
+  const sections = [
+    { title: isKo ? 'DX(Digital Transformation)란?' : 'What is DX?', content: isKo ? '디지털 전환(DX)은 디지털 기술을 활용하여 비즈니스 모델, 운영 프로세스, 고객 경험을 근본적으로 혁신하는 것입니다. 단순 디지털화(Digitization)나 디지털화(Digitalization)와 구분되는 전략적 변혁입니다.' : 'Digital Transformation (DX) is the fundamental innovation of business models, operational processes, and customer experience using digital technology.', icon: 'fa-microchip' },
+    { title: isKo ? '디지털 성숙도 진단' : 'Digital Maturity Assessment', content: isKo ? '조직의 디지털 성숙도를 전략, 문화, 기술, 운영, 고객의 5가지 차원에서 진단합니다. 현재 수준(초기/발전/성숙/선도)을 파악하고 목표 수준과의 Gap을 분석하여 전환 우선순위를 결정합니다.' : 'Diagnose organizational digital maturity across 5 dimensions: strategy, culture, technology, operations, and customer.', icon: 'fa-chart-bar' },
+    { title: isKo ? 'DX 프레임워크' : 'DX Frameworks', content: isKo ? 'McKinsey, BCG, Gartner 등 글로벌 컨설팅사의 DX 프레임워크를 비교 분석합니다. 공통적으로 고객 중심, 데이터 기반, 애자일 실행, 생태계 확장을 핵심 축으로 삼고 있습니다.' : 'Compare DX frameworks from McKinsey, BCG, Gartner, etc. Common axes: customer-centric, data-driven, agile execution, ecosystem expansion.', icon: 'fa-sitemap' },
+    { title: isKo ? '산업별 DX 특성' : 'Industry-Specific DX', content: isKo ? '제조업(스마트팩토리), 금융(디지털뱅킹), 유통(옴니채널), 의료(디지털헬스), 교육(에듀테크) 등 산업별 DX의 핵심 과제와 성공 요인을 분석합니다.' : 'Analyze key DX challenges and success factors by industry: manufacturing, finance, retail, healthcare, and education.', icon: 'fa-industry' },
+    { title: isKo ? 'DX의 장벽과 극복' : 'DX Barriers & Solutions', content: isKo ? '레거시 시스템, 조직 저항, 인재 부족, 예산 제약, 명확하지 않은 ROI — 5대 DX 장벽을 분석하고 각각의 극복 전략을 학습합니다. 변화 관리와 커뮤니케이션이 핵심입니다.' : 'Analyze 5 major DX barriers and learn strategies to overcome each one.', icon: 'fa-mountain' },
+    { title: isKo ? 'DX 성공 사례' : 'DX Success Stories', content: isKo ? '국내외 DX 성공 기업의 공통 특성: ① CEO의 강력한 추진력 ② 고객 가치 중심 ③ 데이터 문화 ④ 실험과 학습 ⑤ 생태계 협력. 대표 사례를 통해 성공 패턴을 도출합니다.' : 'Common traits of DX-successful companies: CEO leadership, customer value focus, data culture, experimentation, and ecosystem collaboration.', icon: 'fa-star' },
+  ];
+
+  return (
+    <>
+      <SEOHead title="DX 개요" description="디지털 전환(DX)의 개념과 프레임워크" path="/dx-overview" />
+      <section className="guide-page">
+        <div className="container">
+          <div className="guide-header">
+            <div className="guide-icon" style={{ background: '#0891B2' }}>
+              <i className="fa-solid fa-microchip" />
+            </div>
+            <div>
+              <h1 className="guide-title">{isKo ? 'DX 개요' : 'DX Overview'}</h1>
+              <p className="guide-subtitle">{isKo ? '디지털 전환(DX)의 개념과 비즈니스 영향을 이해합니다.' : 'Understand the concept and business impact of Digital Transformation.'}</p>
+            </div>
+          </div>
+          <div className="guide-content">
+            {sections.map((section, idx) => (
+              <div key={idx} className="guide-section" data-aos="fade-up">
+                <div className="guide-section-header">
+                  <i className={`fa-solid ${section.icon}`} />
+                  <h2>{section.title}</h2>
+                </div>
+                <p className="guide-section-content">{section.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

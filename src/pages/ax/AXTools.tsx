@@ -1,0 +1,47 @@
+import { useLanguage } from '../../contexts/LanguageContext';
+import SEOHead from '../../components/SEOHead';
+import type { ReactElement } from 'react';
+
+export default function AXTools(): ReactElement {
+  const { language } = useLanguage();
+  const isKo = language === 'ko';
+
+  const sections = [
+    { title: isKo ? '생성형 AI (Generative AI)' : 'Generative AI', content: isKo ? 'GPT, Claude, Gemini 등 LLM 기반 생성형 AI의 비즈니스 활용법을 학습합니다. 텍스트 생성, 코드 작성, 이미지·영상 제작, 데이터 분석 등 다양한 업무에 AI를 적용하는 실전 사례를 다룹니다.' : 'Learn business applications of LLM-based generative AI including GPT, Claude, and Gemini.', icon: 'fa-wand-magic-sparkles' },
+    { title: isKo ? 'MLOps & AI 운영' : 'MLOps & AI Operations', content: isKo ? 'AI 모델의 개발·배포·운영을 자동화하는 MLOps 파이프라인을 학습합니다. 모델 학습, 버전 관리, A/B 테스트, 모니터링, 재학습 자동화 등 프로덕션 AI의 핵심 프랙티스를 다룹니다.' : 'Learn MLOps pipelines that automate AI model development, deployment, and operations.', icon: 'fa-gears' },
+    { title: isKo ? 'AI 에이전트' : 'AI Agents', content: isKo ? '자율적으로 작업을 수행하는 AI 에이전트의 설계와 구현을 배웁니다. 도구 사용, 계획 수립, 멀티 에이전트 협업, 사람과의 상호작용(Human-in-the-Loop) 패턴을 학습합니다.' : 'Learn the design and implementation of AI agents that autonomously perform tasks.', icon: 'fa-user-robot' },
+    { title: isKo ? 'RAG 시스템' : 'RAG Systems', content: isKo ? 'Retrieval-Augmented Generation(RAG)으로 기업 내부 지식을 AI에 연결하는 방법을 배웁니다. 벡터 DB, 임베딩, 청킹 전략, 하이브리드 검색, 평가 방법론을 다룹니다.' : 'Learn how to connect enterprise knowledge to AI with Retrieval-Augmented Generation (RAG).', icon: 'fa-database' },
+    { title: isKo ? 'AI 업무 자동화' : 'AI Work Automation', content: isKo ? 'RPA + AI의 지능형 자동화(Intelligent Automation)로 반복 업무를 혁신합니다. 문서 처리, 이메일 자동 응답, 보고서 생성, 데이터 입력 등 실무 자동화 사례와 구현 방법을 학습합니다.' : 'Innovate repetitive tasks with Intelligent Automation combining RPA and AI.', icon: 'fa-bolt' },
+    { title: isKo ? 'AI 플랫폼과 도구' : 'AI Platforms & Tools', content: isKo ? '주요 AI 플랫폼(Azure AI, AWS SageMaker, Google Vertex AI)과 개발 도구(LangChain, Hugging Face, OpenAI API)의 특징과 선택 기준을 비교합니다.' : 'Compare major AI platforms and development tools with their characteristics and selection criteria.', icon: 'fa-cubes' },
+  ];
+
+  return (
+    <>
+      <SEOHead title="AX 핵심 기술" description="AI 전환을 이끄는 핵심 기술과 도구" path="/ax-tools" />
+      <section className="guide-page">
+        <div className="container">
+          <div className="guide-header">
+            <div className="guide-icon" style={{ background: '#4F46E5' }}>
+              <i className="fa-solid fa-wand-magic-sparkles" />
+            </div>
+            <div>
+              <h1 className="guide-title">{isKo ? 'AX 핵심 기술' : 'AX Core Technologies'}</h1>
+              <p className="guide-subtitle">{isKo ? 'AI 전환을 이끄는 핵심 기술과 도구를 학습합니다.' : 'Learn the core technologies and tools driving AI transformation.'}</p>
+            </div>
+          </div>
+          <div className="guide-content">
+            {sections.map((section, idx) => (
+              <div key={idx} className="guide-section" data-aos="fade-up">
+                <div className="guide-section-header">
+                  <i className={`fa-solid ${section.icon}`} />
+                  <h2>{section.title}</h2>
+                </div>
+                <p className="guide-section-content">{section.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

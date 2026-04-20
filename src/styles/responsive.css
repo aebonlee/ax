@@ -1,0 +1,180 @@
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 26px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px;
+    --nav-height: 64px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .guide-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .guide-section {
+    padding: 20px;
+  }
+
+  .guide-section-header h2 {
+    font-size: 16px;
+  }
+
+  .guide-section-content {
+    font-size: 14px;
+  }
+
+  .stats-grid {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .auth-card-google {
+    padding: 28px 20px;
+  }
+}
+
+/* MyPage */
+.mypage-section {
+  padding: 48px 0;
+}
+
+.mypage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mypage-avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--text-light);
+}
+
+.mypage-info {
+  flex: 1;
+}
+
+.mypage-info h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.mypage-info p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.mypage-provider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Admin */
+.admin-section {
+  padding: 48px 0;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.admin-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+}
+
+.admin-card i {
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.admin-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.admin-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* NotFound */
+.notfound-section {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.notfound-content h1 {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.notfound-content p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}

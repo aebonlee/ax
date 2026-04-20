@@ -24,10 +24,9 @@ export default function Navbar(): ReactElement {
   const isKo = language === 'ko';
 
   const navItems: NavItem[] = [
-    { path: '/', label: t('nav.home') },
     {
       path: '/ax-overview',
-      label: 'AX',
+      label: isKo ? 'AX (AI 전환)' : 'AX (AI Transformation)',
       children: [
         { path: '/ax-overview', label: isKo ? 'AX 개요' : 'AX Overview' },
         { path: '/ax-strategy', label: isKo ? 'AX 전략과 실행' : 'AX Strategy' },
@@ -37,7 +36,7 @@ export default function Navbar(): ReactElement {
     },
     {
       path: '/dx-overview',
-      label: 'DX',
+      label: isKo ? 'DX (디지털 전환)' : 'DX (Digital Transformation)',
       children: [
         { path: '/dx-overview', label: isKo ? 'DX 개요' : 'DX Overview' },
         { path: '/dx-strategy', label: isKo ? 'DX 전략과 실행' : 'DX Strategy' },
@@ -47,7 +46,7 @@ export default function Navbar(): ReactElement {
     },
     {
       path: '/trends',
-      label: isKo ? '트렌드' : 'Trends',
+      label: isKo ? '최신 트렌드' : 'Latest Trends',
       children: [
         { path: '/trends', label: isKo ? '2026 AI 트렌드' : '2026 AI Trends' },
         { path: '/trends-dx', label: isKo ? '디지털 전환 동향' : 'DX Trends' },
@@ -56,7 +55,7 @@ export default function Navbar(): ReactElement {
     },
     {
       path: '/cases',
-      label: isKo ? '사례' : 'Cases',
+      label: isKo ? '기업 사례' : 'Case Studies',
       children: [
         { path: '/cases', label: isKo ? '기업 사례 분석' : 'Enterprise Cases' },
         { path: '/cases-global', label: isKo ? '글로벌 사례' : 'Global Cases' },

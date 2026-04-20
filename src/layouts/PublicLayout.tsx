@@ -6,10 +6,14 @@ import AdminGuard from '../components/AdminGuard';
 import type { ReactElement } from 'react';
 
 const Home = lazy(() => import('../pages/Home'));
+const About = lazy(() => import('../pages/About'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
 const MyPage = lazy(() => import('../pages/MyPage'));
+const Glossary = lazy(() => import('../pages/Glossary'));
+const WhatIsAI = lazy(() => import('../pages/WhatIsAI'));
+const Community = lazy(() => import('../pages/Community'));
 
 // AX pages
 const AXOverview = lazy(() => import('../pages/ax/AXOverview'));
@@ -52,10 +56,14 @@ export default function PublicLayout(): ReactElement {
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/glossary" element={<Glossary />} />
+            <Route path="/what-is-ai" element={<WhatIsAI />} />
+            <Route path="/community" element={<Community />} />
 
             {/* AX */}
             <Route path="/ax-overview" element={<AXOverview />} />

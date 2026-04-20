@@ -24,6 +24,7 @@ export default function Navbar(): ReactElement {
   const isKo = language === 'ko';
 
   const navItems: NavItem[] = [
+    { path: '/about', label: 'About' },
     {
       path: '/ax-overview',
       label: isKo ? 'AX (AI 전환)' : 'AX (AI Transformation)',
@@ -62,6 +63,9 @@ export default function Navbar(): ReactElement {
         { path: '/cases-korea', label: isKo ? '국내 사례' : 'Korea Cases' },
       ],
     },
+    { path: '/glossary', label: isKo ? '용어사전' : 'Glossary' },
+    { path: '/what-is-ai', label: isKo ? '인공지능이란?' : 'What is AI?' },
+    { path: '/community', label: isKo ? '커뮤니티' : 'Community' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

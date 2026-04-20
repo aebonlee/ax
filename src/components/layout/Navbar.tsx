@@ -25,44 +25,10 @@ export default function Navbar(): ReactElement {
 
   const navItems: NavItem[] = [
     { path: '/about', label: 'About' },
-    {
-      path: '/ax-overview',
-      label: isKo ? 'AX (AI 전환)' : 'AX (AI Transformation)',
-      children: [
-        { path: '/ax-overview', label: isKo ? 'AX 개요' : 'AX Overview' },
-        { path: '/ax-strategy', label: isKo ? 'AX 전략과 실행' : 'AX Strategy' },
-        { path: '/ax-tools', label: isKo ? 'AX 핵심 기술' : 'AX Technologies' },
-        { path: '/ax-cases', label: isKo ? 'AX 적용 사례' : 'AX Use Cases' },
-      ],
-    },
-    {
-      path: '/dx-overview',
-      label: isKo ? 'DX (디지털 전환)' : 'DX (Digital Transformation)',
-      children: [
-        { path: '/dx-overview', label: isKo ? 'DX 개요' : 'DX Overview' },
-        { path: '/dx-strategy', label: isKo ? 'DX 전략과 실행' : 'DX Strategy' },
-        { path: '/dx-tech', label: isKo ? 'DX 핵심 기술' : 'DX Technologies' },
-        { path: '/dx-cases', label: isKo ? 'DX 적용 사례' : 'DX Use Cases' },
-      ],
-    },
-    {
-      path: '/trends',
-      label: isKo ? '최신 트렌드' : 'Latest Trends',
-      children: [
-        { path: '/trends', label: isKo ? '2026 AI 트렌드' : '2026 AI Trends' },
-        { path: '/trends-dx', label: isKo ? '디지털 전환 동향' : 'DX Trends' },
-        { path: '/trends-industry', label: isKo ? '산업별 혁신' : 'Industry Innovation' },
-      ],
-    },
-    {
-      path: '/cases',
-      label: isKo ? '기업 사례' : 'Case Studies',
-      children: [
-        { path: '/cases', label: isKo ? '기업 사례 분석' : 'Enterprise Cases' },
-        { path: '/cases-global', label: isKo ? '글로벌 사례' : 'Global Cases' },
-        { path: '/cases-korea', label: isKo ? '국내 사례' : 'Korea Cases' },
-      ],
-    },
+    { path: '/ax-overview', label: isKo ? 'AX (AI 전환)' : 'AX (AI Transformation)' },
+    { path: '/dx-overview', label: isKo ? 'DX (디지털 전환)' : 'DX (Digital Transformation)' },
+    { path: '/trends', label: isKo ? '최신 트렌드' : 'Latest Trends' },
+    { path: '/cases', label: isKo ? '기업 사례' : 'Case Studies' },
     { path: '/glossary', label: isKo ? '용어사전' : 'Glossary' },
     { path: '/what-is-ai', label: isKo ? '인공지능이란?' : 'What is AI?' },
     { path: '/community', label: isKo ? '커뮤니티' : 'Community' },

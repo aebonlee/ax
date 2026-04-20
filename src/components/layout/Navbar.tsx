@@ -97,7 +97,7 @@ export default function Navbar(): ReactElement {
         <Link to="/" className="nav-brand">
           <span className="brand-dream">Dream</span>
           <span className="brand-it">IT</span>{' '}
-          <span className="brand-ax">AX</span>
+          <span className="brand-ax">AX &amp; DX</span>
         </Link>
 
         <div className={`nav-links ${menuOpen ? 'open' : ''}`} ref={dropdownRef}>

@@ -25,8 +25,8 @@ export default function Glossary(): ReactElement {
               <tr><td><strong>LLM (Large Language Model)</strong></td><td>{isKo ? '대규모 텍스트 데이터로 학습된 언어 모델. GPT, Claude, Gemini 등' : 'Language models trained on large-scale text data. GPT, Claude, Gemini, etc.'}</td></tr>
               <tr><td><strong>GenAI (Generative AI)</strong></td><td>{isKo ? '텍스트, 이미지, 코드, 영상 등 새로운 콘텐츠를 생성하는 AI' : 'AI that generates new content such as text, images, code, and video'}</td></tr>
               <tr><td><strong>NLP (Natural Language Processing)</strong></td><td>{isKo ? '인간의 자연어를 컴퓨터가 이해하고 생성하는 기술' : 'Technology for computers to understand and generate human natural language'}</td></tr>
-              <tr><td><strong>AGI (Artificial General Intelligence)</strong></td><td>{isKo ? '인간 수준의 범용 인공��능. 아직 실현되지 않은 목표' : 'Human-level general artificial intelligence. A goal not yet achieved'}</td></tr>
-              <tr><td><strong>Transformer</strong></td><td>{isKo ? '2017년 구글이 발표한 딥러닝 아키텍처. ���재 대부분의 LLM의 기반' : 'Deep learning architecture by Google (2017). Foundation of most current LLMs'}</td></tr>
+              <tr><td><strong>AGI (Artificial General Intelligence)</strong></td><td>{isKo ? '인간 수준의 범용 인공지능. 아직 실현되지 않은 목표' : 'Human-level general artificial intelligence. A goal not yet achieved'}</td></tr>
+              <tr><td><strong>Transformer</strong></td><td>{isKo ? '2017년 구글이 발표한 딥러닝 아키텍처. 현재 대부분의 LLM의 기반' : 'Deep learning architecture by Google (2017). Foundation of most current LLMs'}</td></tr>
             </tbody>
           </table>
         </>
@@ -71,10 +71,10 @@ export default function Glossary(): ReactElement {
             <tbody>
               <tr><td><strong>DX (Digital Transformation)</strong></td><td>{isKo ? '디지털 기술로 비즈니스 모델과 프로세스를 근본적으로 변혁하는 것' : 'Fundamentally transforming business models and processes with digital technology'}</td></tr>
               <tr><td><strong>AX (AI Transformation)</strong></td><td>{isKo ? 'AI 기술을 핵심 동력으로 하는 기업·산업 전반의 혁신' : 'Innovation across enterprises and industries with AI as the core driver'}</td></tr>
-              <tr><td><strong>{isKo ? '디지털 성숙도' : 'Digital Maturity'}</strong></td><td>{isKo ? '조직의 디지털 전환 수준을 측정하는 지표 (초기→발��→성숙→선도)' : 'Metric measuring organizational DX level (Initial→Developing→Mature→Leading)'}</td></tr>
+              <tr><td><strong>{isKo ? '디지털 성숙도' : 'Digital Maturity'}</strong></td><td>{isKo ? '조직의 디지털 전환 수준을 측정하는 지표 (초기→발전→성숙→선도)' : 'Metric measuring organizational DX level (Initial→Developing→Mature→Leading)'}</td></tr>
               <tr><td><strong>{isKo ? '레거시 시스템' : 'Legacy System'}</strong></td><td>{isKo ? '오래된 기술로 구축된 기존 IT 시스템. DX의 주요 장벽' : 'Existing IT systems built with old technology. Major barrier to DX'}</td></tr>
               <tr><td><strong>Smart Factory</strong></td><td>{isKo ? 'IoT, AI, 로봇으로 자동화·지능화된 제조 공장' : 'Manufacturing factory automated and intelligent with IoT, AI, and robots'}</td></tr>
-              <tr><td><strong>Digital Twin</strong></td><td>{isKo ? '물리적 자산을 디지털로 복제���여 시뮬레이��·최적화하는 기술' : 'Technology for simulating and optimizing by digitally replicating physical assets'}</td></tr>
+              <tr><td><strong>Digital Twin</strong></td><td>{isKo ? '물리적 자산을 디지털로 복제하여 시뮬레이션·최적화하는 기술' : 'Technology for simulating and optimizing by digitally replicating physical assets'}</td></tr>
               <tr><td><strong>RPA (Robotic Process Automation)</strong></td><td>{isKo ? '반복적인 사무 작업을 소프트웨어 로봇으로 자동화하는 기술' : 'Technology for automating repetitive office tasks with software robots'}</td></tr>
               <tr><td><strong>{isKo ? '옴니채널' : 'Omnichannel'}</strong></td><td>{isKo ? '온·오프라인 모든 채널을 통합하여 일관된 고객 경험을 제공하는 전략' : 'Strategy providing consistent customer experience by integrating all online/offline channels'}</td></tr>
             </tbody>
@@ -143,10 +143,10 @@ export default function Glossary(): ReactElement {
               <tr><td><strong>ROI (Return on Investment)</strong></td><td>{isKo ? '투자 대비 수익률. AI/DX 프로젝트의 성과 측정 핵심 지표' : 'Return on Investment. Key metric for measuring AI/DX project outcomes'}</td></tr>
               <tr><td><strong>TCO (Total Cost of Ownership)</strong></td><td>{isKo ? '도입·운영·유지보수 등 총 소유 비용' : 'Total cost including implementation, operation, and maintenance'}</td></tr>
               <tr><td><strong>PoC (Proof of Concept)</strong></td><td>{isKo ? '개념 검증. AI/DX 프로젝트의 타당성을 소규모로 검증하는 단계' : 'Proof of Concept. Stage validating AI/DX project feasibility at small scale'}</td></tr>
-              <tr><td><strong>MVP (Minimum Viable Product)</strong></td><td>{isKo ? '최소 기능 제품. 핵심 ���능만으로 빠르게 시장 검증하는 방법' : 'Minimum Viable Product. Quick market validation with core features only'}</td></tr>
+              <tr><td><strong>MVP (Minimum Viable Product)</strong></td><td>{isKo ? '최소 기능 제품. 핵심 기능만으로 빠르게 시장 검증하는 방법' : 'Minimum Viable Product. Quick market validation with core features only'}</td></tr>
               <tr><td><strong>KPI (Key Performance Indicator)</strong></td><td>{isKo ? '핵심 성과 지표. 목표 달성도를 측정하는 정량적 지표' : 'Key Performance Indicator. Quantitative metrics measuring goal achievement'}</td></tr>
               <tr><td><strong>Agile</strong></td><td>{isKo ? '빠른 반복과 피드백으로 점진적으로 개발하는 방법론' : 'Methodology for iterative development with fast feedback cycles'}</td></tr>
-              <tr><td><strong>{isKo ? '변화 관리' : 'Change Management'}</strong></td><td>{isKo ? '조직의 변화를 체계적으로 관리하여 저항을 최소화하고 수용도를 ��이는 활동' : 'Activities systematically managing organizational change to minimize resistance'}</td></tr>
+              <tr><td><strong>{isKo ? '변화 관리' : 'Change Management'}</strong></td><td>{isKo ? '조직의 변화를 체계적으로 관리하여 저항을 최소화하고 수용도를 높이는 활동' : 'Activities systematically managing organizational change to minimize resistance'}</td></tr>
               <tr><td><strong>ESG</strong></td><td>{isKo ? 'Environment(환경), Social(사회), Governance(지배구조). 지속가능 경영 지표' : 'Environment, Social, Governance. Sustainable management metrics'}</td></tr>
             </tbody>
           </table>

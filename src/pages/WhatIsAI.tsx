@@ -78,7 +78,7 @@ export default function WhatIsAI(): ReactElement {
           </ul>
           <TipBox type="tip">
             <p>{isKo
-              ? 'ChatGPT, Claude 등 대화형 AI는 "다음 단어 예측"을 반복하는 방식으로 작동합니다. 수조 개의 텍스트 데이터에서 패턴을 학습하여, 문맥에 맞는 다�� 단어를 확률적으로 생성합니다.'
+              ? 'ChatGPT, Claude 등 대화형 AI는 "다음 단어 예측"을 반복하는 방식으로 작동합니다. 수조 개의 텍스트 데이터에서 패턴을 학습하여, 문맥에 맞는 다음 단어를 확률적으로 생성합니다.'
               : 'Conversational AI like ChatGPT and Claude works by repeatedly "predicting the next word." It learns patterns from trillions of text data to probabilistically generate contextually appropriate next words.'}</p>
           </TipBox>
         </>
@@ -95,7 +95,7 @@ export default function WhatIsAI(): ReactElement {
           <table className="guide-table">
             <thead><tr><th>{isKo ? '유형' : 'Type'}</th><th>{isKo ? '대표 서비스' : 'Key Services'}</th><th>{isKo ? '활용 분야' : 'Applications'}</th></tr></thead>
             <tbody>
-              <tr><td><strong>{isKo ? '대화형 AI' : 'Conversational AI'}</strong></td><td>ChatGPT, Claude, Gemini</td><td>{isKo ? '질문 답변, 글쓰기, ��딩, 분석' : 'Q&A, writing, coding, analysis'}</td></tr>
+              <tr><td><strong>{isKo ? '대화형 AI' : 'Conversational AI'}</strong></td><td>ChatGPT, Claude, Gemini</td><td>{isKo ? '질문 답변, 글쓰기, 코딩, 분석' : 'Q&A, writing, coding, analysis'}</td></tr>
               <tr><td><strong>{isKo ? '이미지 생성 AI' : 'Image Generation AI'}</strong></td><td>Midjourney, DALL-E, Stable Diffusion</td><td>{isKo ? '디자인, 광고, 컨셉 아트' : 'Design, advertising, concept art'}</td></tr>
               <tr><td><strong>{isKo ? '영상 생성 AI' : 'Video Generation AI'}</strong></td><td>Sora, Runway, Pika</td><td>{isKo ? '마케팅 영상, 교육 콘텐츠' : 'Marketing videos, educational content'}</td></tr>
               <tr><td><strong>{isKo ? '음성 AI' : 'Voice AI'}</strong></td><td>ElevenLabs, Whisper, Clova Note</td><td>{isKo ? '음성 합성, 번역, 회의록' : 'Speech synthesis, translation, transcription'}</td></tr>
@@ -120,7 +120,7 @@ export default function WhatIsAI(): ReactElement {
           <h3>{isKo ? '산업별 AI 활용' : 'AI by Industry'}</h3>
           <ul>
             <li><strong>{isKo ? '제조' : 'Manufacturing'}</strong>: {isKo ? '예지보전, 품질검사, 공정최적화, 디지털 트윈' : 'Predictive maintenance, quality inspection, process optimization, digital twin'}</li>
-            <li><strong>{isKo ? '금융' : 'Finance'}</strong>: {isKo ? '신���평가, 이상거래탐지, 자산관리, 보험심사' : 'Credit scoring, fraud detection, asset management, insurance underwriting'}</li>
+            <li><strong>{isKo ? '금융' : 'Finance'}</strong>: {isKo ? '신용평가, 이상거래탐지, 자산관리, 보험심사' : 'Credit scoring, fraud detection, asset management, insurance underwriting'}</li>
             <li><strong>{isKo ? '의료' : 'Healthcare'}</strong>: {isKo ? '영상진단, 신약개발, 정밀의학, 디지털치료제' : 'Medical imaging, drug discovery, precision medicine, digital therapeutics'}</li>
             <li><strong>{isKo ? '유통' : 'Retail'}</strong>: {isKo ? '수요예측, 개인화추천, 재고최적화, 무인매장' : 'Demand forecasting, personalization, inventory optimization, unmanned stores'}</li>
             <li><strong>{isKo ? '교육' : 'Education'}</strong>: {isKo ? 'AI튜터, 적응형학습, 자동채점, 학습분석' : 'AI tutor, adaptive learning, auto-grading, learning analytics'}</li>

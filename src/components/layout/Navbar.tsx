@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import type { ReactElement } from 'react';
+
+interface NavItem {
+  path: string;
+  label: string;
+  children?: { path: string; label: string }[];
+}
 
 export default function Navbar(): ReactElement {
   const { isLoggedIn, isAdmin, signOut } = useAuth();
@@ -12,16 +18,75 @@ export default function Navbar(): ReactElement {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorOpen, setColorOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/');
+  const isKo = language === 'ko';
 
-  const navLinks = [
+  const navItems: NavItem[] = [
     { path: '/', label: t('nav.home') },
-    { path: '/ax-overview', label: t('nav.ax'), children: ['/ax-overview', '/ax-strategy', '/ax-tools'] },
-    { path: '/dx-overview', label: t('nav.dx'), children: ['/dx-overview', '/dx-strategy', '/dx-tech'] },
-    { path: '/trends', label: t('nav.trends') },
-    { path: '/cases', label: t('nav.cases') },
+    {
+      path: '/ax-overview',
+      label: 'AX',
+      children: [
+        { path: '/ax-overview', label: isKo ? 'AX 개요' : 'AX Overview' },
+        { path: '/ax-strategy', label: isKo ? 'AX 전략과 실행' : 'AX Strategy' },
+        { path: '/ax-tools', label: isKo ? 'AX 핵심 기술' : 'AX Technologies' },
+        { path: '/ax-cases', label: isKo ? 'AX 적용 사례' : 'AX Use Cases' },
+      ],
+    },
+    {
+      path: '/dx-overview',
+      label: 'DX',
+      children: [
+        { path: '/dx-overview', label: isKo ? 'DX 개요' : 'DX Overview' },
+        { path: '/dx-strategy', label: isKo ? 'DX 전략과 실행' : 'DX Strategy' },
+        { path: '/dx-tech', label: isKo ? 'DX 핵심 기술' : 'DX Technologies' },
+        { path: '/dx-cases', label: isKo ? 'DX 적용 사례' : 'DX Use Cases' },
+      ],
+    },
+    {
+      path: '/trends',
+      label: isKo ? '트렌드' : 'Trends',
+      children: [
+        { path: '/trends', label: isKo ? '2026 AI 트렌드' : '2026 AI Trends' },
+        { path: '/trends-dx', label: isKo ? '디지털 전환 동향' : 'DX Trends' },
+        { path: '/trends-industry', label: isKo ? '산업별 혁신' : 'Industry Innovation' },
+      ],
+    },
+    {
+      path: '/cases',
+      label: isKo ? '사례' : 'Cases',
+      children: [
+        { path: '/cases', label: isKo ? '기업 사례 분석' : 'Enterprise Cases' },
+        { path: '/cases-global', label: isKo ? '글로벌 사례' : 'Global Cases' },
+        { path: '/cases-korea', label: isKo ? '국내 사례' : 'Korea Cases' },
+      ],
+    },
   ];
+
+  const isActive = (path: string) => location.pathname === path;
+  const isGroupActive = (item: NavItem) => {
+    if (isActive(item.path)) return true;
+    return item.children?.some(c => isActive(c.path)) || false;
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+    setDropdownOpen(null);
+  }, [location.pathname]);
 
   return (
     <nav className="navbar">
@@ -32,27 +97,48 @@ export default function Navbar(): ReactElement {
           <span className="brand-ax">AX</span>
         </Link>
 
-        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(link => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`nav-link ${isActive(link.path) || link.children?.some(c => isActive(c)) ? 'active' : ''}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`} ref={dropdownRef}>
+          {navItems.map(item => (
+            item.children ? (
+              <div key={item.path} className="nav-dropdown-wrapper">
+                <button
+                  className={`nav-link nav-dropdown-trigger ${isGroupActive(item) ? 'active' : ''}`}
+                  onClick={() => setDropdownOpen(dropdownOpen === item.path ? null : item.path)}
+                >
+                  {item.label}
+                  <i className={`fa-solid fa-chevron-down nav-chevron ${dropdownOpen === item.path ? 'rotated' : ''}`} />
+                </button>
+                {dropdownOpen === item.path && (
+                  <div className="nav-dropdown-menu">
+                    {item.children.map(child => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        className={`nav-dropdown-item ${isActive(child.path) ? 'active' : ''}`}
+                        onClick={() => setDropdownOpen(null)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
 
         <div className="nav-actions">
-          {/* Color theme picker */}
           <div className="color-picker-wrapper">
-            <button
-              className="nav-icon-btn"
-              onClick={() => setColorOpen(!colorOpen)}
-              title="Color theme"
-            >
+            <button className="nav-icon-btn" onClick={() => setColorOpen(!colorOpen)} title="Color theme">
               <span className="color-dot" style={{ background: COLOR_OPTIONS.find(c => c.name === colorTheme)?.color || '#1E3A5F' }} />
             </button>
             {colorOpen && (
@@ -70,26 +156,17 @@ export default function Navbar(): ReactElement {
             )}
           </div>
 
-          {/* Theme toggle */}
           <button className="nav-icon-btn" onClick={toggleTheme} title="Theme">
             <i className={`fa-solid ${mode === 'auto' ? 'fa-circle-half-stroke' : mode === 'dark' ? 'fa-moon' : 'fa-sun'}`} />
           </button>
 
-          {/* Language */}
-          <button
-            className="nav-icon-btn lang-btn"
-            onClick={() => setLanguage(language === 'ko' ? 'en' : 'ko')}
-            title="Language"
-          >
+          <button className="nav-icon-btn lang-btn" onClick={() => setLanguage(language === 'ko' ? 'en' : 'ko')} title="Language">
             {language === 'ko' ? 'EN' : 'KO'}
           </button>
 
-          {/* Auth */}
           {isLoggedIn ? (
             <>
-              {isAdmin && (
-                <Link to="/admin" className="nav-link nav-admin">{t('nav.admin')}</Link>
-              )}
+              {isAdmin && <Link to="/admin" className="nav-link nav-admin">{t('nav.admin')}</Link>}
               <Link to="/mypage" className="nav-link">{t('nav.mypage')}</Link>
               <button className="nav-logout-btn" onClick={signOut}>{t('nav.logout')}</button>
             </>
@@ -97,7 +174,6 @@ export default function Navbar(): ReactElement {
             <Link to="/login" className="nav-login-btn">{t('nav.login')}</Link>
           )}
 
-          {/* Mobile menu toggle */}
           <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <i className={`fa-solid ${menuOpen ? 'fa-xmark' : 'fa-bars'}`} />
           </button>

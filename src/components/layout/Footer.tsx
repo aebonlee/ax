@@ -7,7 +7,7 @@ export default function Footer(): ReactElement {
   const isKo = language === 'ko';
 
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="사이트 푸터">
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">
@@ -19,7 +19,7 @@ export default function Footer(): ReactElement {
             <p className="footer-description">
               {isKo
                 ? 'AI 전환(AX)과 디지털 전환(DX), 최신 트렌드를 체계적으로 학습하는 종합 플랫폼'
-                : 'A comprehensive platform for learning AI Transformation (AX) and Digital Transformation (DX)'}
+                : 'A comprehensive platform for learning AI Transformation and Digital Transformation'}
             </p>
           </div>
 
@@ -38,16 +38,16 @@ export default function Footer(): ReactElement {
           <div className="footer-contact">
             <h4>{isKo ? '연락처' : 'Contact'}</h4>
             <p className="footer-email">
-              <span className="footer-email-icon"><i className="fa-solid fa-envelope" /></span>
+              <span className="footer-email-icon">✉️</span>
               <a href="mailto:aebon@dreamitbiz.com">aebon@dreamitbiz.com</a>
             </p>
             <p>010-3700-0629</p>
-            <p>{isKo ? '카카오톡' : 'KakaoTalk'}: aebon</p>
             <p className="business-hours">{isKo ? '평일 09:00 ~ 18:00' : 'Weekdays 09:00 ~ 18:00'}</p>
 
             <div className="footer-family">
               <select
                 defaultValue=""
+                aria-label="패밀리 사이트"
                 onChange={(e) => {
                   if (e.target.value) window.open(e.target.value, '_blank');
                   e.target.value = '';
@@ -64,9 +64,9 @@ export default function Footer(): ReactElement {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2025 DreamIT Biz. All rights reserved.</p>
+          <p>&copy; 2026 DreamIT Biz. All rights reserved.</p>
           <p className="footer-bottom-info">
-            Designed by Ph.D Aebon Lee | {isKo ? '대표이사' : 'CEO'}: {isKo ? '이애본' : 'Aebon Lee'}
+            Designed by Ph.D Aebon Lee | {isKo ? '대표이사' : 'CEO'}: {isKo ? '이애본' : 'Aebon Lee'} | {isKo ? '사업자등록번호' : 'Business Reg.'}: 601-45-20154
           </p>
         </div>
       </div>

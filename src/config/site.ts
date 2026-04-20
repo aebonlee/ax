@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   id: 'ax',
-  name: 'DreamIT AX',
+  name: 'DreamIT AX & DX',
   nameKo: 'AX & DX 학습 플랫폼',
   description: 'AI 전환(AX)과 디지털 전환(DX), 최신 트렌드를 체계적으로 학습하는 종합 플랫폼',
   url: 'https://ax.dreamitbiz.com',
